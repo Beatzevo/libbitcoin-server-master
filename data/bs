@@ -1,0 +1,11 @@
+#
+#  Command-line completion for bs.
+#
+_bs()
+{
+    local current="${COMP_WORDS[COMP_CWORD]}"
+    local options=" --config --help --initchain --settings --version -c -h -i -s -v"
+
+    COMPREPLY=( `compgen -W "$options" -- $current` )
+}
+complete -F _bs bs
